@@ -47,6 +47,10 @@ func main() {
 		log.Fatal(err)
 	}
 
+	if !fi.Mode().IsRegular() {
+		log.Fatal(`Target file is not regular.`)
+	}
+
 	// Start pipeing the tar
 
 	r := bufio.NewReader(os.Stdin)
