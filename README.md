@@ -10,6 +10,13 @@ A native Go CLI tool for appending files to the end of a tar received via stdin 
 4. tar-append will append files with names that already exist in the archive - this is purposeful.
 5. tar-append only writes the tarball to STDOUT. Error messages will be sent on STDERR.
 
+## Examples
+
+    mkdir logs
+    tar cf - 1.txt 2.txt | tar-append 3.txt | tar-append 4.txt | tar xf - -C ./logs
+    ls ./logs
+    # 1.txt   2.txt   3.txt   4.txt 
+
 ### Authors and Copyright Holders
 
 1. Jeff Nickoloff "jeff@allingeek.com"
